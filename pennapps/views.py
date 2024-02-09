@@ -41,6 +41,7 @@ def application(request):
         except Application.DoesNotExist:
             form = ApplicationForm()
         print(form)
+       
         return render(request, 'pennapps/application.html', {'form': form})
     else:
         return render(request, 'pennapps/home.html')

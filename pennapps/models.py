@@ -5,6 +5,7 @@ from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 
 
+
 class Applicant(AbstractUser):
     is_penn_student = models.BooleanField(default=False)
 

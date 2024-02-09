@@ -129,6 +129,7 @@
                     </label>
                     <input type="text" name="team_member_1"
                         {% if form.team_member_1.value is not None %} value="{{form.team_member_1.value}}" {% endif %}
+                        
                         placeholder="team_member1@some.site">
                     </input><br style="height: 3px;">
                     {% for error in form.team_member_1.errors %}

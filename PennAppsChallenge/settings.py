@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sendsms',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ AUTH_USER_MODEL = "pennapps.Applicant"
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+SENDSMS_BACKEND = 'sendsms.backends.twilio.TwilioBackend'
+
+TWILIO_ACCOUNT_SID = 'AC5197edf3a94c4331437226100f858619'
+TWILIO_AUTH_TOKEN = 'b7a1e1f41acf9372ad1d63301e18c003'
+TWILIO_PHONE_NUMBER = '+18559526564'
