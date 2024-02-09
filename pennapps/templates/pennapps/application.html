@@ -24,7 +24,7 @@
                     </label>
                     <input class="typeahead" type="text" name="school" 
                         {% if is_penn_student %} value="University of Pennsylvania" disabled 
-                        {% else %}  value="{{form.school.value}}" 
+                        {% elif form.school.value is not None %}  value="{{form.school.value}}" 
                         {% endif %}
                     >
                 </span>
@@ -57,7 +57,7 @@
                     <label class="standard-text">
                         <span class="input-label-content">Major</span>
                     </label>
-                    <input class="input-field" type="text" name="major" value="{{form.major.value}}">
+                    <input class="input-field" type="text" name="major" {% if form.major.value is not None %} value="{{form.major.value}}"> {% endif %}
                 </span>
                 
 
@@ -92,7 +92,7 @@
                         <span class="input-label-content">{{hackathon.q1}}*</span>
                         <small>(150 words max)</small>
                     </label>
-                    <textarea name="q1" form="application">{{form.q1.value}}</textarea>
+                    <textarea name="q1" form="application">{% if form.q1.value != None %} {{form.q1.value}} {% endif %}</textarea>
                 </span>
                 <span id="q1-error" class="hidden-error-message">
                     Please fill out this field!
@@ -103,7 +103,7 @@
                         <span class="input-label-content">{{hackathon.q2}}*</span>
                         <small>(150 words max)</small>
                     </label>
-                    <textarea name="q2" form="application">{{form.q2.value}}</textarea>
+                    <textarea name="q2" form="application">{% if form.q2.value != None %} {{form.q2.value}} {% endif %}</textarea>
                 </span>
                 <span id="q2-error" class="hidden-error-message">
                     Please fill out this field!
@@ -129,7 +129,7 @@
                     </label>
                     <input type="text" name="team_member_1"
                         {% if form.team_member_1.value is not None %} value="{{form.team_member_1.value}}" {% endif %}
-                        
+
                         placeholder="team_member1@some.site">
                     </input><br style="height: 3px;">
                     {% for error in form.team_member_1.errors %}
