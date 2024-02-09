@@ -25,10 +25,12 @@ class ApplicationAdmin(admin.ModelAdmin):
             self.send_sms(obj)
 
     def send_sms(self, application):
+        cleaned_num = '+1' + ''.join(filter(str.isdigit, application.phone_number))
         message = client.messages.create(
-            body=f"Your application status has been updated!",
+            body=f"Your PennApps application status has been updated!",
             from_=TWILIO_PHONE_NUMBER,
-            to=application.phone_number
+            to=cleaned_num
         )
+        print(cleaned_num)
 
 admin.site.register(Application, ApplicationAdmin)
