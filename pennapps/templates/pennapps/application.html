@@ -24,7 +24,7 @@
                     </label>
                     <input class="typeahead" type="text" name="school" 
                         {% if is_penn_student %} value="University of Pennsylvania" disabled 
-                        {% else %}  value="{{school}}" 
+                        {% else %}  value="{{form.school.value}}" 
                         {% endif %}
                     >
                 </span>
@@ -35,7 +35,7 @@
                 <span class="app-item">
                     <label class="standard-text" for="year">Year*</label>
                     <div class="dropdown">
-                        <select name="year" value="{{year}}">
+                        <select name="year" value="{{form.year.value}}">
                             {% if year == "" %}<option value="" selected hidden>Select an Option</option>{% endif %}
                             <option value="nth" {% if year == "nth" %} selected {% endif %}>9th Grade</option>
                             <option value="ten" {% if year == "ten" %} selected {% endif %}>10th Grade</option>
@@ -57,7 +57,7 @@
                     <label class="standard-text">
                         <span class="input-label-content">Major</span>
                     </label>
-                    <input class="input-field" type="text" name="major" value="{{major}}">
+                    <input class="input-field" type="text" name="major" value="{{form.major.value}}">
                 </span>
                 
 
@@ -68,7 +68,7 @@
                             In form 123-456-7890</small>
                     </label>
                     <input type="text" id="phone" name="phone_number"
-                        value="{% if phone_number %}{{phone_number|cut:' '}}{% endif %}"
+                        value="{% if form.phone_number.value %}{{form.phone_number.value|cut:' '}}{% endif %}"
                         pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
                 </span>
                 <span id="phone_number-error" class="hidden-error-message">
@@ -80,7 +80,7 @@
                         <span class="input-label-content">Birthday*</span>
                     </label>
                     <input type="date" id="birthday" name="birthday"
-                        value="{% if birthday %}{{ birthday|date:'Y-m-d' }}{% endif %}">
+                        value="{% if form.birthday.value %}{{ form.birthday.value|date:'Y-m-d' }}{% endif %}">
                 </span>
                 <span id="birthday-error" class="hidden-error-message">
                     Please fill out this field!
@@ -92,7 +92,7 @@
                         <span class="input-label-content">{{hackathon.q1}}*</span>
                         <small>(150 words max)</small>
                     </label>
-                    <textarea name="q1" form="application">{{q1}}</textarea>
+                    <textarea name="q1" form="application">{{form.q1.value}}</textarea>
                 </span>
                 <span id="q1-error" class="hidden-error-message">
                     Please fill out this field!
@@ -103,7 +103,7 @@
                         <span class="input-label-content">{{hackathon.q2}}*</span>
                         <small>(150 words max)</small>
                     </label>
-                    <textarea name="q2" form="application">{{q2}}</textarea>
+                    <textarea name="q2" form="application">{{form.q2.value}}</textarea>
                 </span>
                 <span id="q2-error" class="hidden-error-message">
                     Please fill out this field!
@@ -115,8 +115,8 @@
                     <label class="standard-text" for="first_hackathon">Will this be your first hackathon?*</label>
                     <div class="dropdown">
                         <select name="first_hackathon">
-                            <option value="y" {% if first_hackathon %} selected {% endif %}>Yes</option>
-                            <option value="n" {% if not first_hackathon %} selected {% endif %}>No</option>
+                            <option value="y" {% if form.first_hackathon.value %} selected {% endif %}>Yes</option>
+                            <option value="n" {% if not form.first_hackathon.value %} selected {% endif %}>No</option>
                         </select>
                     </div>
                 </span>
@@ -128,17 +128,30 @@
                             please enter the emails of your team members.</span>
                     </label>
                     <input type="text" name="team_member_1"
-                        value="{{team_member_1}}"
+                        {% if form.team_member_1.value is not None %} value="{{form.team_member_1.value}}" {% endif %}
                         placeholder="team_member1@some.site">
                     </input><br style="height: 3px;">
+                    {% for error in form.team_member_1.errors %}
+                        <span class="hidden-error-message">{{error}}</span>
+                    {% endfor %}
+
                     <input type="text" name="team_member_2"
-                        value="{{team_member_2}}"
+                        {% if form.team_member_2.value is not None %} value="{{form.team_member_2.value}}" {% endif %}
                         placeholder="team_member2@some.site">
                     </input><br style="height: 3px;">
+                    {% for error in form.team_member_2.errors %}
+                        <span class="hidden-error-message">{{error}}</span>
+                    {% endfor %}
+                    
+
                     <input type="text" name="team_member_3"
-                        value="{{team_member_3}}"
+                        {% if form.team_member_3.value is not None %} value="{{form.team_member_3.value}}" {% endif %}
                         placeholder="team_member3@some.site">
                     </input>
+                    {% for error in form.team_member_3.errors %}
+                        <span class="hidden-error-message">{{error}}</span>
+                    {% endfor %}
+                    
                 </span>
 
                 <span class="app-item">
