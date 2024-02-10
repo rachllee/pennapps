@@ -111,6 +111,7 @@ A bonus task I came up with on my own was real time SMS notification when an app
 
 :warning: _Disclaimer_: :warning: Twilio has been... spotty with its functionality. SMS is a carrier feature, meaning that when text messages are sent, they may not always get to the user despite indication of an outbound message and an associated charge on the Twilio console (particularly with iphones, as I have noticed during testing). I also uploaded funds from my own card to get the functionality working (Twilio trial account only allows SMS to manually verified numbers) so this is me asking you not to mass spam status changes or try putting an emergency number in an application!
 
+
 ## Submission
 
 Once you are done, create a ZIP file of your project which you can submit on the submission form. (If you code is pushed to GitHub, clicking the green "Code" dropdown, and then "Download ZIP" is one way to do so.) Congrats, you just made a mini hackathon application portal!
