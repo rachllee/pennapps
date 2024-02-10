@@ -9,6 +9,7 @@ from django.core.exceptions import ValidationError
 class Applicant(AbstractUser):
     is_penn_student = models.BooleanField(default=False)
 
+    
 class Application(models.Model):
     STATUS_CHOICES = [
         ("ACPT", "Accepted"),

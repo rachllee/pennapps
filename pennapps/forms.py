@@ -8,6 +8,9 @@ class ApplicantForm(UserCreationForm):
         model = Applicant
         fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email', 'is_penn_student')
 
+
+
+
 class ApplicationForm(forms.ModelForm):
     class Meta:
         model = Application

@@ -20,7 +20,6 @@ def index(request):
         try: 
             application = Application.objects.get(applicant=user)
             application_status = application.get_status_display()
-            print(application_status)
         except Application.DoesNotExist:
             pass
         context = {
@@ -34,13 +33,11 @@ def index(request):
 
 def application(request):
     if request.user.is_authenticated:
-        print('application def ')
         try:
             existing_application = Application.objects.get(applicant=request.user)
             form = ApplicationForm(instance=existing_application)
         except Application.DoesNotExist:
             form = ApplicationForm()
-        print(form)
        
         return render(request, 'pennapps/application.html', {'form': form})
     else:
