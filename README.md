@@ -1,6 +1,6 @@
 # PennApps Backend Technical Challenge
 
-### [Click to scroll to my documentation](#my-project-documentation) 🌟
+### [Click to scroll past the instructions to my documentation](#my-project-documentation) 🌟
 
 Welcome to the backend challenge! The purpose of this challenge is to help us gauge your level of interest and your abilities while also allowing you to get a feel for the type of stuff we work on. While the challenge will be judged based off of correctness and overall design, *we do not expect you to get everything 100%*! What we are looking for most is **effort and thought**. You should not need to spend more than **3 hours** on it. 
 
